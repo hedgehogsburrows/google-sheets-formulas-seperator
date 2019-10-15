@@ -6,8 +6,20 @@ const del = require('del');
 /**
  * Cleans build
  */
-gulp.task('clean', function() {
-  return del('build');
+gulp.task(
+  'clean',
+  gulp.series(
+    function() {
+      return del('build');
+    },
+    function() {
+      return del('dist');
+    }
+  )
+);
+
+gulp.task('dist', function() {
+  return gulp.src('src/separators.js').pipe(gulp.dest('dist'));
 });
 
 /**
@@ -53,7 +65,7 @@ gulp.task('preBuild', function devPrep() {
  */
 gulp.task(
   'dev',
-  gulp.series('clean', 'devPrep', 'preBuild', 'devassets', 'clasp')
+  gulp.series('clean', 'devPrep', 'preBuild', 'devassets', 'dist', 'clasp')
 );
 
 /**
@@ -61,7 +73,7 @@ gulp.task(
  */
 gulp.task(
   'build',
-  gulp.series('clean', 'buildPrep', 'preBuild', 'prodassets', 'clasp')
+  gulp.series('clean', 'buildPrep', 'preBuild', 'prodassets', 'dist', 'clasp')
 );
 
 /**
