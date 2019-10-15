@@ -1,0 +1,27 @@
+{
+  "name": "google-sheets-formulas-separator",
+  "version": "0.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp watch",
+    "prod": "gulp build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "@google/clasp": "*",
+    "@types/google-apps-script": "*",
+    "clasp-types": "*",
+    "del": "*",
+    "eslint": "*",
+    "eslint-config-google": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-googleappsscript": "*",
+    "eslint-plugin-prettier": "*",
+    "gulp": "*",
+    "prettier": "*"
+  }
+}
